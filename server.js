@@ -3,9 +3,7 @@ const app = express();
 const router = require("express-router");
 const bodyParser = require("body-parser");
 
-const yoo = require("./logic/websockets.js");
-
-yoo.sendMessage("hello");
+const auth = require("./logic/auth.js");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
