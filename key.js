@@ -1,9 +1,9 @@
-let saltRounds = 20;
-let plainTextPassword = "churchzone.christ.2025";
-let anotherPlainPassword = "The.Second.Password";
+let customFields = {
+    saltRounds : 20,
+    plainTextPassword : "churchzone.christ.2026",
+    anotherPlainPassword : "The.Second.Password"
+}
 
 module.export = {
-    saltRounds,
-    plainTextPassword,
-    anotherPlainPassword
+    customFields
 }

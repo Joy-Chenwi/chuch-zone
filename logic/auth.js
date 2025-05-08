@@ -1,22 +1,23 @@
 const passport = require("passport");
 const express = require("express");
-const app = express();
 const bcrypt = require("bcrypt");
 const passJwt = require("passport-jwt");
 const bodyParser = require("body-parser");
 const LocalStrategy = require("passport-local");
 const expressSession = require("express-session");
 const mysqlStore = require("express-mysql-session")(expressSession);
+const mysql = require("mysql");
 const nodeCrypto = require("node:crypto");
 
-const credentials = require("../key.js")
+const app = express();
+const customFields = require("../key.js")
 
 app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(expressSession({
-    key: credentials.plainTextPassword,
-    secret: credentials.anotherPlainPassword,
+    key: customFields.plainTextPassword,
+    secret: customFields.anotherPlainPassword,
     store: new  mysqlStore({
         host: "localhost",
         port: 3306,
@@ -30,13 +31,25 @@ app.use(expressSession({
     }
 }));
 
-const verifyPassword = (password) => {
-//TODO: create a DB connection and comparation model to
-//OPTIMIZE: Both the verifiedPass and the way to connect to the pass from the 
-//database for realtime data
+const connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    database: "user",
+    multipleStatement: true
+})
 
-    if(password !=  verifiedPass) return err;
+connection.connect((err) => {
+    if(!err) {
+        console.log("Connected");
+    }else{
+        console.log("Error connecting to the Db");
+    }
+})
+
+const verifyCallback = (username, password, done) => {
 }
+
+const strategy = new LocalStrategy(customFields, verifyCallback);   
 
 passport.use(new LocalStrategy( (username, password, done) => {
     User.findOne({username: username}, (err, user) => {

@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8)),
+        url("../images/the_cross.webp");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.main > form {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 70%;
+    width: 50%;
+    color: white;
+    //background: rgba(23, 224, 34, .3);
+    border-radius: 6%;
+}
+
+.main > form > .inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50%;
+    width: 70%;
+}
+
+.main > form > .login-inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 25%;
+    width: 70%;
+}
+
+.main > form > .login-inputs > input {
+    font-size: 30px;
+    border-radius: 10px;
+    padding: 8px;
+    background: none;
+    color: white;
+}
+
+.main > form > .inputs > input {
+    font-size: 30px;
+    border-radius: 10px;
+    padding: 8px;
+    background: none;
+    color: white;
+}
+
+.main > form > .inputs > select{
+    font-size: 30px;
+    border-radius: 10px;
+    padding: 8px;
+    background: none;
+    color: white;
+}
+
+.main > form > button {
+    font-size: 22px;
+    border-radius: 40px;
+    padding: 16px 28px;
+    color: white;
+    font-weight: 400;
+    background: #153b3a;
+    cursor: pointer;
+    border: none;
+}
+
