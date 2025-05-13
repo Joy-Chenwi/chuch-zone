@@ -1,0 +1,22 @@
+<head>
+    <link rel="stylesheet" href="styles/navbar.css">
+</head>
+
+<body>
+    <% let isRegistered = true; %>
+    <div class="nav-div">
+        <nav>
+            <h2> ChurchApp </h2>
+            <ul class="links"> 
+                <li> Explore </li>
+                <li> Live </li>
+                <li> Chat </li>
+            </ul>
+            <button> Free-trial </button>
+            <% if(!isRegistered) {%>
+                <h2> <%= talk %>
+                <h2> Signup </h2>
+            <%}%> 
+        </nav>
+    </div>
+</body>

@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #506f6e;
+}
+
+.divider {
+    display: grid;
+    height: 90%;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 60% 20%;
+    align-content: center;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 80px;
+    text-align: center;
+}
+
+.action-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(-45deg)
+}
+
+.action-panel>button {
+    border: none;
+    border-radius: 50px;
+    padding: 10px 35px;
+    font-size: 50px;
+}
+
+.action-panel>button:hover {
+    cursor: pointer;
+    background: #92fa29;
+    color: black;
+    opacity: .6;
+}
+
+img {
+    width: 200px;
+    height: auto;
+    grid-column: 2;
+}
