@@ -3,10 +3,14 @@ const path = require("path");
 const app = express();
 const router = require("express-router");
 const bodyParser = require("body-parser");
+const { Server } = require("socket.io");
+const { createServer} = require("node:http");
 
 let isRegistered = true;
+let server = createServer(app);
 
 const auth = require("./logic/auth.js");
+const io = new Server(server);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -25,6 +29,13 @@ app.get("/signup", (req, res) => {
 });
 app.get("/login", (req, res) => {
     res.render("login");
+});
+app.get("/text", (req, res) => {
+    res.render("textChat");
+})
+
+io.on("connection", (socket)=>{
+    console.log("a user just connected");
 });
 
 app.listen(3010, () => {
