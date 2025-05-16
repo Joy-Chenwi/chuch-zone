@@ -36,8 +36,20 @@ app.get("/text", (req, res) => {
 
 io.on("connection", (socket)=>{
     console.log("a user just connected");
+
+    socket.on("chat", (msg) => {
+        io.emit("chat", (msg) => {
+            console.log(`This is the msg: ${msg}`);
+        });
+    });
+
+    socket.on("disconnect", () => {
+        console.log("The user disconneted Yoo");
+    });
+});
+
+server.listen(3010, () => {
 });
 
 app.listen(3010, () => {
-    console.log("Everything is running right");
 });
