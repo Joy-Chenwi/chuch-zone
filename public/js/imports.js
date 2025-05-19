@@ -9,7 +9,6 @@ form.addEventListener("submit", (e) => {
 
     if(input.value) {
         socket.emit("chat", input.value);
-        console.log("they only know Cole");
         input.value = "";
     }
 })

@@ -10,7 +10,11 @@ let isRegistered = true;
 let server = createServer(app);
 
 const auth = require("./logic/auth.js");
-const io = new Server(server);
+const io = new Server(server, {
+    timeout: 60000,
+    reconnectionAttempts: 5,
+    reconnectionDelay: 1000
+})
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
